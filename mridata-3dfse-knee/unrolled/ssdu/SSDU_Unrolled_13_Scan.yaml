@@ -1,16 +1,14 @@
-# Inherit fields from the unet.yaml config.
+# Inherit fields from the unrolled.yaml config.
 _BASE_: "../../templates/unrolled.yaml"
 DATALOADER:
   # DATALOADER has 1 supervised and 13 unsupervised
   SUBSAMPLE_TRAIN:
     NUM_TOTAL: 14
     NUM_UNDERSAMPLED: 13
-OUTPUT_DIR: results://vortex/mridata_knee_3dfse/unrolled/ssdu/ssdu_unet_13_scan
+OUTPUT_DIR: results://vortex/mridata_knee_3dfse/unrolled/ssdu/ssdu_unrolled_13_scan
 DESCRIPTION:
   BRIEF: f"SSDU Unrolled {AUG_TRAIN.UNDERSAMPLE.ACCELERATIONS}x mridata - {MODEL.SSDU.MASKER.PARAMS.kind}/loss={MODEL.RECON_LOSS.NAME}"
-  ENTITY_NAME: ''
-  EXP_NAME: vortex/mridata_knee_3dfse/SSDU
-  PROJECT_NAME: 'vortex_rm'
+  EXP_NAME: vortex/mridata_knee_3dfse/unrolled/SSDU
   TAGS:
   - baseline
   - ssdu
@@ -18,7 +16,7 @@ DESCRIPTION:
   - mridata_knee_3dfse
   - unrolled
 # For no motion aug, A2R and Consistency were removed.
-# For UNET, the META_ARCHITECTURE of SSDUModel is UnetModel
+# For Unrolled, the META_ARCHITECTURE of SSDUModel is GeneralizedUnrolledCNN
 MODEL:
   META_ARCHITECTURE: SSDUModel
   RECON_LOSS:
