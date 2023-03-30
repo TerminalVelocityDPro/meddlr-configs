@@ -1,5 +1,5 @@
 # Inherit fields from the unet.yaml config.
-_BASE_: "../../templates/unet.yaml"
+_BASE_: "../../templates/unet_aug.yaml"
 # DATALOADER has only 1 supervised scan
 DATALOADER:
   SUBSAMPLE_TRAIN:
@@ -21,22 +21,7 @@ DESCRIPTION:
   - unet
 # For UNET, kept META_ARCHITECTURE as UnetModel
 MODEL:
-  A2R:
-    META_ARCHITECTURE: UnetModel 
-    USE_SUPERVISED_CONSISTENCY: false  # TUNE 
   CONSISTENCY:
-    AUG:
-      MRI_RECON:
-        AUG_SENSITIVITY_MAPS: true
-        SCHEDULER_P:
-          IGNORE: false
-        TRANSFORMS:
-        - name: RandomMRIMotion 
-          p: 0.2
-          std_devs:
-          - 0.2
-          - 0.5
-          use_mask: true
     LOSS_NAME: l1
     LOSS_WEIGHT: 0.1
     USE_CONSISTENCY: true  

@@ -30,7 +30,4 @@ MODEL:
       # These parameters were taken from the VORTEX/Noise2Recon papers.
       PARAMS:
         kind: uniform
-        p: 1.0
-        per_example: true
-        rhos: 0.4
 VERSION: 1

@@ -22,6 +22,10 @@ DESCRIPTION:
 # For no motion aug, A2R and Consistency was removed.
 # For UNET, kept META_ARCHITECTURE as UnetModel
 MODEL:
+  CONSISTENCY:
+    LOSS_NAME: l1
+    LOSS_WEIGHT: 0.1
+    USE_CONSISTENCY: true  
   META_ARCHITECTURE: UnetModel  
   RECON_LOSS:
     NAME: l1

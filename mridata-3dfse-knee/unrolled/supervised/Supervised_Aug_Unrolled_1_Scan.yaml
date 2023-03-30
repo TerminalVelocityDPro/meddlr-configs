@@ -1,5 +1,5 @@
 # Inherit fields from the unrolled.yaml config.
-_BASE_: "../../templates/unrolled.yaml"
+_BASE_: "../../templates/unrolled_aug.yaml"
 # DATALOADER has only 1 supervised scan
 DATALOADER:
   SUBSAMPLE_TRAIN:
@@ -18,22 +18,7 @@ DESCRIPTION:
   - unrolled
 # For Unrolled, made META_ARCHITECTURE GeneralizedUnrolledCNN
 MODEL:
-  A2R:
-    META_ARCHITECTURE: GeneralizedUnrolledCNN 
-    USE_SUPERVISED_CONSISTENCY: false  # TUNE 
   CONSISTENCY:
-    AUG:
-      MRI_RECON:
-        AUG_SENSITIVITY_MAPS: true
-        SCHEDULER_P:
-          IGNORE: false
-        TRANSFORMS:
-        - name: RandomMRIMotion 
-          p: 0.2
-          std_devs:
-          - 0.2
-          - 0.5
-          use_mask: true
     LOSS_NAME: l1
     LOSS_WEIGHT: 0.1
     USE_CONSISTENCY: true 

@@ -27,8 +27,4 @@ MODEL:
     MASKER:
       PARAMS:
         kind: uniform
-        p: 1.0
-        per_example: true
-        rhos: 0.2
-        std_scale: 4
 VERSION: 1

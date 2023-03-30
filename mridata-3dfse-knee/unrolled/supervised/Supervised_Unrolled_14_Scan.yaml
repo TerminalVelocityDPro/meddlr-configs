@@ -19,6 +19,10 @@ DESCRIPTION:
 # For no motion aug, A2R and Consistency was removed.
 # For Unrolled, made META_ARCHITECTURE GeneralizedUnrolledCNN
 MODEL:
+  CONSISTENCY:
+    LOSS_NAME: l1
+    LOSS_WEIGHT: 0.1
+    USE_CONSISTENCY: true  
   META_ARCHITECTURE: GeneralizedUnrolledCNN
   RECON_LOSS:
     NAME: l1
