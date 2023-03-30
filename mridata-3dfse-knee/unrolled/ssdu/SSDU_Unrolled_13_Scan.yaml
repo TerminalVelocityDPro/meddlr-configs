@@ -5,10 +5,10 @@ DATALOADER:
   SUBSAMPLE_TRAIN:
     NUM_TOTAL: 14
     NUM_UNDERSAMPLED: 13
-OUTPUT_DIR: results://vortex/mridata_knee_3dfse/unrolled/ssdu/ssdu_unrolled_13_scan
+OUTPUT_DIR: results://vortex-rm/mridata_knee_3dfse/unrolled/ssdu/ssdu_unrolled_13_scan
 DESCRIPTION:
   BRIEF: f"SSDU Unrolled {AUG_TRAIN.UNDERSAMPLE.ACCELERATIONS}x mridata - {MODEL.SSDU.MASKER.PARAMS.kind}/loss={MODEL.RECON_LOSS.NAME}"
-  EXP_NAME: vortex/mridata_knee_3dfse/unrolled/SSDU
+  EXP_NAME: mridata_knee_3dfse/unrolled/SSDU
   TAGS:
   - baseline
   - ssdu
@@ -27,4 +27,7 @@ MODEL:
     MASKER:
       PARAMS:
         kind: uniform
+        p: 1.0
+        rhos: 0.4  # Default value in SSDU code
+        per_example: true
 VERSION: 1
