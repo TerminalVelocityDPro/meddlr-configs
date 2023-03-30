@@ -34,7 +34,6 @@ SOLVER:
   # Checkpointing frequency
   CHECKPOINT_PERIOD: 5000
   # Number of iterations to train for.
-  # We set this to 40000 for now. We may want to increase to 80000 later for a full run.
   MAX_ITER: 80000
 TEST:
   # Validation frequency

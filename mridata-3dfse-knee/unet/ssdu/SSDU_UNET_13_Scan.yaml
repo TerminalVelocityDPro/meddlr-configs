@@ -6,12 +6,12 @@ DATALOADER:
     NUM_TOTAL: 14
     NUM_UNDERSAMPLED: 13
 # Specify an output directory that is unique for this experiment.
-OUTPUT_DIR: results://vortex/mridata_knee_3dfse/unet/ssdu/ssdu_unet_13_scan
+OUTPUT_DIR: results://vortex-rm/mridata_knee_3dfse/unet/ssdu/ssdu_unet_13_scan
 DESCRIPTION:
   # Use f-strings to specify reading values in braces ({}) the config file.
   # This can only be done for string fields.
   BRIEF: f"SSDU U-Net {AUG_TRAIN.UNDERSAMPLE.ACCELERATIONS}x mridata - {MODEL.SSDU.MASKER.PARAMS.kind}/loss={MODEL.RECON_LOSS.NAME}"
-  EXP_NAME: vortex/mridata_knee_3dfse/unet/ssdu
+  EXP_NAME: mridata_knee_3dfse/unet/ssdu
   TAGS:
   - baseline
   - ssdu
@@ -30,4 +30,7 @@ MODEL:
       # These parameters were taken from the VORTEX/Noise2Recon papers.
       PARAMS:
         kind: uniform
+        p: 1.0
+        rhos: 0.4  # Default value in SSDU code
+        per_example: true 
 VERSION: 1
