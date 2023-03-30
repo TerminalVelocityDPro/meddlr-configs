@@ -1,17 +1,17 @@
 # Inherit fields from the unrolled.yaml config.
-_BASE_: "../../templates/unrolled_aug.yaml"
+_BASE_: "../../templates/unrolled.yaml"
 DATALOADER:
   SUBSAMPLE_TRAIN:
     # 1 supervised and 13 unsupervised scans for training
     NUM_TOTAL: 14
     NUM_UNDERSAMPLED: 13
 # Specify an output directory that is unique for this experiment. 
-OUTPUT_DIR: results://vortex/mridata_knee_3dfse/unrolled/ssdu/ssdu_aug_unrolled_13_scan
+OUTPUT_DIR: results://vortex-rm/mridata_knee_3dfse/unrolled/ssdu/ssdu_aug_unrolled_13_scan
 DESCRIPTION:
   # Use f-strings to specify reading values in braces ({}) the config file.
   # This can only be done for string fields.
   BRIEF: f"SSDU Aug Unrolled {AUG_TRAIN.UNDERSAMPLE.ACCELERATIONS}x mridata - {MODEL.SSDU.MASKER.PARAMS.kind}/loss={MODEL.RECON_LOSS.NAME}"
-  EXP_NAME: vortex/mridata_knee_3dfse/unrolled/SSDU_Aug
+  EXP_NAME: mridata_knee_3dfse/unrolled/SSDU_Aug
   TAGS:
   - baseline
   - ssdu
@@ -31,6 +31,19 @@ MODEL:
       # These parameters were taken from the VORTEX/Noise2Recon papers. 
       PARAMS:
         kind: uniform
+        rhos: 0.4  # Default value in SSDU code
+        p: 1.0
+        per_example: true
+    AUGMENTOR:
+      TRANSFORMS:
+      - name: RandomMRIMotion
+        p: 0.2
+        std_devs:
+        - 0.2
+        - 0.5
+AUG_TRAIN:
+  MRI_RECON:
+    TRANSFORMS: []
 VERSION: 1
 
 
