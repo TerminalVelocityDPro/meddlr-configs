@@ -12,4 +12,3 @@ SOLVER:
   TRAIN_BATCH_SIZE: 16
   TEST_BATCH_SIZE: 16
   BASE_LR: 1e-3
-OUTPUT_DIR: "results://mri-recon/mridata-3dfse-knee/unet"

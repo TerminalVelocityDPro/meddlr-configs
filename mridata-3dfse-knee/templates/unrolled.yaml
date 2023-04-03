@@ -17,5 +17,4 @@ SOLVER:
   GRAD_ACCUM_ITERS: 4
   TEST_BATCH_SIZE: 12
   BASE_LR: 1e-4
-OUTPUT_DIR: "results://mri-recon/mridata-3dfse-knee/unrolled"
 VERSION: 1
